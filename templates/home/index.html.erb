@@ -3,12 +3,15 @@
 
 <h3> Was gibts zu tun? </h3>
 
-<form action='/' method= 'POST'>
+<form action='/' method='POST'>
   Schreibs hier auf: <input name="task"/> 
   
   <input type="submit" value="Bestätigen" />
 </form>
 
-<h2> 1.<%= task %></h2>
 
-
+<% if(task && !task.empty?) %>
+<ul>
+<li><%= task %></li>
+</ul>
+<% end %>
