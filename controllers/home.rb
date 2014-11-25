@@ -4,11 +4,14 @@ module ToDo
       include ToDo::Controller
 
       action 'Index' do
-        expose :name
+      expose :task
 
         def call(params)
-          @name = params[:name]
+          #puts params.inspect
+          @task = params[:task]
+          #puts @task.inspect
         end
+
       end
     end
   end
