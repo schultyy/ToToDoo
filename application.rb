@@ -6,6 +6,7 @@ module ToDo
       routes do
         get '/', to: 'home#index' #leitet es an server und zurück zum browser
         post '/', to: 'home#index'
+        get '/impressum', to: 'imprint#page'
       end
 
       load_paths << [

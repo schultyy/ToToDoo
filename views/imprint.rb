@@ -1,7 +1,7 @@
 module ToDo
   module Views
-    module Home
-      class Index
+    module Imprint
+      class Page
         include ToDo::View
 
       end
