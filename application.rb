@@ -1,4 +1,5 @@
 require 'lotus'
+require 'lotus/model'
 
 module ToDo
   class Application < Lotus::Application
@@ -12,11 +13,29 @@ module ToDo
       load_paths << [
         'controllers',
         'models',
-        'views'
+        'views',
+        'repositories'
       ]
       layout :application
     end
 
     load!
   end
+
+  CONNECTION_URI = "sqlite://#{__dir__}/test.db"
+  Lotus::Model.configure do
+    adapter type: :sql, uri: CONNECTION_URI
+
+  mapping do
+    collection :task do
+    entity     ToDo::Models::Task
+    repository ToDo::Repositories::TaskRepository
+
+    attribute :id, Integer
+    attribute :name, String
+   end
+ end
+end
+
+Lotus::Model.load!
 end
