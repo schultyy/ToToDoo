@@ -13,6 +13,12 @@
 
 <ul>
   <% tasks.each do |task| %>
-	<li><%= task.name %></li>
+  	<li>
+  		<form action="/task/delete" METHOD="POST">
+  		<%= task.name %>
+  		<input type="hidden" value= "<%=task.id%>">
+  		<button> X </button>
+  	</form>
+  </li>
   <% end %>
 </ul>
