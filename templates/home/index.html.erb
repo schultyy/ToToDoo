@@ -14,9 +14,10 @@
 <ul>
   <% tasks.each do |task| %>
   	<li>
-  		<form action="/task/delete" METHOD="POST">
+  		<form action="/tasks/delete" METHOD="POST">
   		<%= task.name %>
-  		<input type="hidden" value= "<%=task.id%>">
+  		<input type="hidden" value= "<%=task.id%>" name= "task_id">
+  		<!-- hidden: sendet versteckte Dateien mit-->
   		<button> X </button>
   	</form>
   </li>

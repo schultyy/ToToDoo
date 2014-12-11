@@ -30,7 +30,18 @@ module ToDo
 
           #puts @task.inspect
         end
+      end
 
+      action 'Delete' do
+        def call(params)
+          task = ToDo::Repositories::TaskRepository.find(params[:task_id])
+          ToDo::Repositories::TaskRepository.delete(task)
+          #Server merkt sich hidden "id" des tasks der glöscht werden soll, 
+          #speichert den in task über "find" und der wird dann übergeben und gelöscht
+
+          redirect_to '/'
+          #IST GELÖSCHT->geht zurück und lädt Seite neu
+        end
       end
     end
   end

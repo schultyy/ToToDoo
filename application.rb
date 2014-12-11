@@ -7,6 +7,8 @@ module ToDo
       routes do
         get '/', to: 'home#index' #leitet es an server und zurück zum browser
         post '/', to: 'home#index'
+        post '/tasks/delete', to: 'home#delete'
+        # Reihenfolge wichtig, da er von oben nach unten durchsucht und ausführt
         get '/impressum', to: 'imprint#page'
       end
 
