@@ -27,7 +27,7 @@ module ToDo
     adapter type: :sql, uri: CONNECTION_URI
 
   mapping do
-    collection :task do
+    collection :tasks do
     entity     ToDo::Models::Task
     repository ToDo::Repositories::TaskRepository
 
