@@ -7,7 +7,7 @@ module ToDo
       expose :tasks
 
         def call(params)
-          @tasks = ToDo::Repositories::TaskRepository.all
+          @tasks = ToDo::Repositories::TaskRepository.alphabetically
         end
       end
 
@@ -37,7 +37,7 @@ module ToDo
 
           redirect_to "/"
         end
-        
+
       end
 
       action 'Delete' do
