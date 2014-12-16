@@ -6,7 +6,7 @@ module ToDo
     configure do
       routes do
         get '/', to: 'home#index' #leitet es an server und zurück zum browser
-        post '/', to: 'home#index'
+        post '/tasks/create', to: 'home#create'
         post '/tasks/delete', to: 'home#delete'
         # Reihenfolge wichtig, da er von oben nach unten durchsucht und ausführt
         get '/impressum', to: 'imprint#page'
@@ -40,4 +40,11 @@ module ToDo
 end
 
 Lotus::Model.load!
+end
+
+def h(text)
+  Rack::Utils.escape_html(text)
+  # ersetzt spitze KLammern <...> damit User keine Anwendungen starten kann
+  # = Input bereinigen
+  # Methode wird bei home-index.html.erb aufgerufen
 end

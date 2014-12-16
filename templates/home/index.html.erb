@@ -5,7 +5,7 @@
 
 <h3> Was gibts zu tun? </h3>
 
-<form action='/' method='POST'>
+<form action='/tasks/create' method='POST'>
   Schreibs hier auf: <input name="task"/> 
   
   <input type="submit" value="Bestätigen" />
@@ -15,7 +15,7 @@
   <% tasks.each do |task| %>
   	<li>
   		<form action="/tasks/delete" METHOD="POST">
-  		<%= task.name %>
+  		<%= h(task.name) %>
   		<input type="hidden" value= "<%=task.id%>" name= "task_id">
   		<!-- hidden: sendet versteckte Dateien mit-->
   		<button> X </button>

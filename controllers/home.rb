@@ -7,16 +7,9 @@ module ToDo
       expose :tasks
 
         def call(params)
-          #puts params.inspect
-          new_task = ToDo::Models::Task.new({name: params[:task]})
-          if !new_task.name.nil? && !new_task.name.strip.empty?
-          # Zeile 12: damit beim NeuLaden und bei Leerzeichen kein neuer Punkt erscheint
-          # .strip: entfernt Leerzeichen aus String
-          ToDo::Repositories::TaskRepository.create(new_task)
-          # aus repositories-task_repository.rb (Pfad)
-        end
-          
           @tasks = ToDo::Repositories::TaskRepository.all
+        end
+      end
 
           # Zeile 14: Befehl aus https://github.com/lotus/model -> repositories
 
@@ -29,7 +22,22 @@ module ToDo
           # und setup.rb -> database.create_table! :tasks do 
 
           #puts @task.inspect
+      
+      action "Create" do
+
+      def call(params)
+          #puts params.inspect
+          new_task = ToDo::Models::Task.new({name: params[:task]})
+          if !new_task.name.nil? && !new_task.name.strip.empty?
+          # Zeile 12: damit beim NeuLaden und bei Leerzeichen kein neuer Punkt erscheint
+          # .strip: entfernt Leerzeichen aus String
+          ToDo::Repositories::TaskRepository.create(new_task)
+          # aus repositories-task_repository.rb (Pfad)
+          end
+
+          redirect_to "/"
         end
+        
       end
 
       action 'Delete' do
