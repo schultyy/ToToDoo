@@ -11,6 +11,7 @@ module ToDo
         post '/tasks/create', to: 'home#create'
         post '/tasks/delete', to: 'home#delete'
         get '/users/new',     to: 'users#new'  #Liefert das Registrierungsformular aus
+        get '/users/signin',  to: 'users#signin'
         post '/users/create', to: 'users#create'
         # Reihenfolge wichtig, da er von oben nach unten durchsucht und ausführt
         get '/impressum', to: 'imprint#page'
