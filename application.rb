@@ -8,11 +8,12 @@ module ToDo
       #Erste Route, die matcht, wird genommen
       routes do
         get '/', to: 'home#index' #leitet es an server und zurück zum browser
-        post '/tasks/create', to: 'home#create'
-        post '/tasks/delete', to: 'home#delete'
-        get '/users/new',     to: 'users#new'  #Liefert das Registrierungsformular aus
-        get '/users/signin',  to: 'users#signin'
-        post '/users/create', to: 'users#create'
+        post '/tasks/create',     to: 'home#create'
+        post '/tasks/delete',     to: 'home#delete'
+        get '/users/new',         to: 'users#new'  #Liefert das Registrierungsformular aus
+        get '/users/signin',      to: 'users#signin'
+        post '/users/create',     to: 'users#create'
+        post '/sessions/create',  to: 'sessions#create'
         # Reihenfolge wichtig, da er von oben nach unten durchsucht und ausführt
         get '/impressum', to: 'imprint#page'
       end
