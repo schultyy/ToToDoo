@@ -1,15 +1,21 @@
 
 <a href="/impressum">Impressum</a>
+<a href="/users/new">Registrieren</a>
 
 <h1> ToDo-Liste </h1>
 
 <h3> Was gibts zu tun? </h3>
 
 <form action='/tasks/create' method='POST'>
-  Schreibs hier auf: <input name="task" autofocus="true"/> 
+  Schreibs hier auf: <input name="task" autofocus="true"/>
   <!-- damit das Eingabefeld aktiv bleibt-->
-  
-  <input type="submit" value="Bestätigen" />
+
+  <input type="submit" value="Bestaetigen" />
+</form>
+
+<form method="GET" action="/">
+  <button name="alphabetically">Alphabetisch</button>
+  <button name="newest">Neueste zuerst</button>
 </form>
 
 <ul>

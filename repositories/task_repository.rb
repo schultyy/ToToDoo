@@ -7,12 +7,14 @@ module ToDo
 			# Sortiermethoden 1. das letzte zum Schluss / 2.Alphabetisch
 			def self.latest_tasks
 				query do 
+          #sort descending by id
 					desc(:id)
 				end
 			end
 
 			def self.alphabetically
 				query do
+          #sort name ascending
 					asc(:name)
 				end
 			end
@@ -20,7 +22,7 @@ module ToDo
 	end
 end
 
-repo = ToDo::Repositories::TaskRepository.new
+#repo = ToDo::Repositories::TaskRepository.new
 
 #exemple
 #repo.all
