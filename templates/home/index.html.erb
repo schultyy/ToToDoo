@@ -1,6 +1,9 @@
 <a href="/impressum">Impressum</a>
 <a href="/users/new">Registrieren</a>
 <a href="/users/signin">Anmelden</a>
+<%if user %>
+  <p><%= user.email %></p>
+<% end %>
 
 <h1> ToDo-Liste </h1>
 

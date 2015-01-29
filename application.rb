@@ -1,5 +1,6 @@
 require 'lotus'
 require 'lotus/model'
+require 'lotus/action/session'
 
 module ToDo
   class Application < Lotus::Application
