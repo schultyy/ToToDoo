@@ -1,6 +1,9 @@
 <a href="/impressum">Impressum</a>
 <a href="/users/new">Registrieren</a>
 <a href="/users/signin">Anmelden</a>
+<form action="/sessions/destroy" method="POST">
+  <button>sign out</button>
+</form>
 <%if user %>
   <p><%= user.email %></p>
 <% end %>

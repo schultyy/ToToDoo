@@ -15,6 +15,7 @@ module ToDo
         get '/users/signin',      to: 'users#signin'
         post '/users/create',     to: 'users#create' #sign up
         post '/sessions/create',  to: 'sessions#create'
+        post '/sessions/destroy', to: 'sessions#destroy'
         # Reihenfolge wichtig, da er von oben nach unten durchsucht und ausführt
         get '/impressum', to: 'imprint#page'
       end

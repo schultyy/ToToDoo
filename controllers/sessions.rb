@@ -19,6 +19,14 @@ module ToDo
           end
         end
       end
+
+      action 'Destroy' do
+        include Lotus::Action::Session
+        def call(params)
+          session[:user] = nil
+          redirect_to "/"
+        end
+      end
     end
   end
 end
