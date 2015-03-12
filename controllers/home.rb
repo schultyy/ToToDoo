@@ -11,7 +11,6 @@ module ToDo
         expose :user
 
         def call(params)
-          puts "SESSION: #{session[:user]}"
           if params[:newest]
             @tasks = ToDo::Repositories::TaskRepository.latest_tasks
           elsif params[:alphabetically]
