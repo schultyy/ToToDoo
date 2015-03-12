@@ -16,6 +16,7 @@ end
 database.create_table! :tasks do
   primary_key :id
   String :name
+  Integer :user_id #Fremdschluessel auf Users-Tabelle
 end
 
 #sqlite

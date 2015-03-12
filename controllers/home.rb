@@ -11,12 +11,14 @@ module ToDo
         expose :user
 
         def call(params)
+          user_id = session[:user]
+          puts "SESSION: #{user_id}"
           if params[:newest]
-            @tasks = ToDo::Repositories::TaskRepository.latest_tasks
+            @tasks = ToDo::Repositories::TaskRepository.latest_tasks(user_id)
           elsif params[:alphabetically]
-            @tasks = ToDo::Repositories::TaskRepository.alphabetically
+            @tasks = ToDo::Repositories::TaskRepository.alphabetically(user_id)
           else
-            @tasks = ToDo::Repositories::TaskRepository.all
+            @tasks = ToDo::Repositories::TaskRepository.for_user(user_id)
           end
 
           @user = ToDo::Repositories::UserRepository.by_id(session[:user])
@@ -24,9 +26,12 @@ module ToDo
       end
 
       action "Create" do
-
+        include Lotus::Action::Session
         def call(params)
-          new_task = ToDo::Models::Task.new({name: params[:task]})
+          new_task = ToDo::Models::Task.new({
+            name: params[:task],
+            user_id: session[:user]
+          })
           if !new_task.name.nil? && !new_task.name.strip.empty?
             ToDo::Repositories::TaskRepository.create(new_task)
           end

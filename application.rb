@@ -43,6 +43,7 @@ module ToDo
 
         attribute :id, Integer
         attribute :name, String
+        attribute :user_id, Integer
       end
 
       collection :users do
