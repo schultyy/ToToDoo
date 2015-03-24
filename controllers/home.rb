@@ -27,11 +27,13 @@ module ToDo
 
       action "Create" do
         include Lotus::Action::Session
+
         def call(params)
           new_task = ToDo::Models::Task.new({
             name: params[:task],
             user_id: session[:user]
           })
+          #
           if !new_task.name.nil? && !new_task.name.strip.empty?
             ToDo::Repositories::TaskRepository.create(new_task)
           end
