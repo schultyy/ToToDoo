@@ -32,7 +32,10 @@ module ToDo
     load!
   end
 
-  CONNECTION_URI = "sqlite://#{__dir__}/test.db"
+  require 'dotenv'
+  Dotenv.load
+
+  CONNECTION_URI = ENV["DATABASE_URL"]
   Lotus::Model.configure do
     adapter type: :sql, uri: CONNECTION_URI
 
